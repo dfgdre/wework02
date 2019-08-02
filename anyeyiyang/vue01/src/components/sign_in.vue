@@ -1,4 +1,5 @@
 <template>
+  <transition name="fade" mode="out-in">
   <div class="register" ref="register">
     <all_head>
       <template v-slot:one><router-link class="fanhui_qyh" :to="{path:'/position_Sir'}"><span class="pull-right glyphicon glyphicon-menu-left" id="span-right"></span></router-link></template>
@@ -31,6 +32,8 @@
     <!--<div class="resetting">重置密码?</div>-->
     <router-link class="resetting" :to="{path:'/position_Sir'}">重置密码?</router-link>
   </div>
+  </transition>
+
 </template>
 
 <script>
@@ -81,8 +84,6 @@
   }
   .register .register_add_qyh>div{
     padding: 0.12rem;
-    /*padding-bottom: 0.144rem;*/
-    /*padding-top: 0.55rem;*/
     padding-left: 0.17rem;
     background-color: white;
     margin-bottom: 1px;

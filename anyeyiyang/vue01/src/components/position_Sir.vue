@@ -59,7 +59,6 @@
             a.push([b,d[b]])
           }
         }
-        console.log(a);
         this.arr1=a;
       }).catch((error)=>{
         console.log(error.data);
@@ -67,7 +66,6 @@
 
       Vue.axios.get('https://elm.cangdu.org/v1/cities?type=hot',{}).then((result)=>{
         //后台传来的值存在result的data里面
-        console.log(result.data);
         this.arr2=result.data;
       }).catch((error)=>{
         console.log(error.data);
