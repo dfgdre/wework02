@@ -22,6 +22,7 @@
     height: 0.48rem;
     background: #3190e8;
     position: fixed;
+    z-index: 1;
   }
   .all_head .top_qyh{
     display: flex;

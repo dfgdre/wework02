@@ -4,12 +4,20 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios);
 
-Vue.use(VueAxios, axios)
+import Vuex from 'vuex'
+Vue.use(Vuex);
+import one from "./assets/js/one";
+const store = new Vuex.Store({
+  modules: {
+    a : one,
+  }
+});
 
 //引入样式重置文件
 import "@/assets/css/reset.css";
@@ -25,5 +33,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
-})
+  template: '<App/>',
+  store
+});

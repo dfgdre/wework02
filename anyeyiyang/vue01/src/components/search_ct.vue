@@ -1,4 +1,5 @@
 <template>
+  <!--暂时不用-->
     <div class="search_ct">
       <p class="p1">搜索历史</p>
       <div class="search_ct_bottom">
@@ -6,7 +7,7 @@
           <p class="p2">{{once.name}}</p>
           <p class="p3">{{once.msg}}</p>
         </div>
-        <div class="search_ct_dele">清空所有</div>
+        <div class="search_ct_dele" @click="tijiao" v-if="tj">清空所有</div>
       </div>
     </div>
 </template>
@@ -16,7 +17,16 @@
     name: "search_ct",
     data(){
       return {
-        lgarr:[{name:'十二营村',msg:'打啊啊打阿达打算打萨达',lianjie:""},{name:'十二营村',msg:'打啊啊打阿达打算打萨达',lianjie:""}]
+        tj:true,
+        lgarr:[
+          {name:'十二营村',msg:'打啊啊打阿达打算打萨达',lianjie:""},
+          {name:'十二营村',msg:'打啊啊打阿达打算打萨达',lianjie:""}
+          ],
+      }
+    },
+    methods:{
+      tijiao(){
+        this.tj=false;
       }
     }
   }
@@ -52,5 +62,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 0.01rem solid rgba(0,0,0,0.1);
   }
 </style>

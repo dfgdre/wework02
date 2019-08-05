@@ -1,13 +1,17 @@
 <template>
   <div class="one_1">
     <div class="op_head">
-      <div class="head1"><span style="margin-left: 0.112rem; font-size: 0.16rem">ele.me</span><span class="pull-right" @click="zhuce" style="margin-right: 0.112rem;">注册</span><span class="pull-right">|</span><span class="pull-right" @click="denglu">登录</span>
+      <div class="head1"><span style="margin-left: 0.112rem; font-size: 0.16rem">ele.me</span>
+        <span v-if="!dengluguo" class="pull-right" @click="zhuce" style="margin-right: 0.112rem;">注册</span>
+        <span v-if="!dengluguo" class="pull-right">|</span>
+        <span v-if="!dengluguo" class="pull-right" @click="denglu">登录</span>
+        <p class="pull-right qyh dlg_qyh" v-else >&#xe61b;</p>
         <div class="clearfix"></div>
       </div>
       <div class="head2"><span class="pull-left" style="color: #666">当前定位城市:</span><span class="pull-right" id="pull-right" style="margin-right: 0.08rem;">定位不准时,请在城市列表中选择</span>
         <div class="clearfix"></div>
       </div>
-      <div class="head3"><span class="span-left">郑州</span><div class="head3_fh pull-right"><span class="pull-right glyphicon glyphicon-menu-right" id="span-right"></span></div>
+      <div class="head3" @click="btn_name('郑州')"><span class="span-left">郑州</span><div class="head3_fh pull-right"><span class="pull-right glyphicon glyphicon-menu-right" id="span-right"></span></div>
         <div class="clearfix"></div>
       </div>
     </div>
@@ -34,6 +38,7 @@
       return {
         arr1:[],
         arr2:[],
+        dengluguo:false,
       }
     },
     computed:{},
@@ -69,8 +74,8 @@
         this.arr2=result.data;
       }).catch((error)=>{
         console.log(error.data);
-      })
-
+      });
+      this.dengluguo = localStorage.user_id?true:false;
     }
   }
 </script>
@@ -172,5 +177,9 @@
   }
   .one_1 .once-c{
     color: #3190e8;
+  }
+  .one_1 .dlg_qyh{
+    margin-right: 0.1rem;
+    font-size: 0.25rem;
   }
 </style>
